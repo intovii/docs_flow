@@ -139,3 +139,41 @@ func (uc *Usecase) createRefreshToken(userID int) (string, error) {
 
 	return signedString, nil
 }
+
+
+func (uc *Usecase) GetProfileData() {
+	
+}
+func (uc *Usecase) GetMessangerChat() {
+	
+}
+func (uc *Usecase) GetMessangerChats() {
+	
+}
+func (uc *Usecase) SendMessage() {
+	
+}
+func (uc *Usecase) GetDocsSectionData() {
+	
+}
+func (uc *Usecase) GetDocumentsTemplates() {
+	
+}
+func (uc *Usecase) CreateDocument() {
+	
+}
+func (uc *Usecase) GetDocuments() {
+	
+}
+func (uc *Usecase) SignDocument() {
+	
+}
+func (uc *Usecase) CreateNotification() {
+	
+}
+func (uc *Usecase) DeleteNotification() {
+	
+}
+func (uc *Usecase) GetNotifications() {
+	
+}

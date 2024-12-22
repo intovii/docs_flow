@@ -87,3 +87,40 @@ func (s *Server) CreateUser(ctx *gin.Context) {
 	// ctx.JSON(http.StatusCreated, user)
 }
 
+
+func (s *Server) GetProfileData(ctx *gin.Context) {
+	
+}
+func (s *Server) GetMessangerChat(ctx *gin.Context) {
+	
+}
+func (s *Server) GetMessangerChats(ctx *gin.Context) {
+	
+}
+func (s *Server) SendMessage(ctx *gin.Context) {
+	
+}
+func (s *Server) GetDocsSectionData(ctx *gin.Context) {
+	
+}
+func (s *Server) GetDocumentsTemplates(ctx *gin.Context) {
+	
+}
+func (s *Server) CreateDocument(ctx *gin.Context) {
+	
+}
+func (s *Server) GetDocuments(ctx *gin.Context) {
+	
+}
+func (s *Server) SignDocument(ctx *gin.Context) {
+	
+}
+func (s *Server) CreateNotification(ctx *gin.Context) {
+	
+}
+func (s *Server) DeleteNotification(ctx *gin.Context) {
+	
+}
+func (s *Server) GetNotifications(ctx *gin.Context) {
+	
+}
