@@ -1,0 +1,26 @@
+service_name: "video_courses"
+
+Postgres:
+  host: "127.0.0.1"
+  # port: "5432"
+  #  host: "postgres_courses"
+  port: "6332"
+  user: "postgres"
+  password: "password"
+  DBName: "docs_flow"
+  sslMode: "allow"
+
+Server: #http
+  # host: "127.0.0.1"
+  host: "0.0.0.0"
+  port: "3000"
+
+YClients:  
+  host: "https://api.yclients.com/api/v1"
+  partnerToken: "5najkzawcb5w24pgfzb7"  
+  userLogin: ""
+  userPassword: ""  
+  userToken: "cbf103bdea8cd3dc08d7790d11058814"
+  companyID: "521526"
+
+Secret: "lio2UbeLoKlYuJ7LDR+kSxUPQDHbaekq"

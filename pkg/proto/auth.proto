@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package auth_proto.v1;
+
+service auth{
+  rpc GetUserToken(GetUserTokenRequest) returns(GetUserTokenResponse) {}
+  rpc RegisterUser(RegisterUserRequest) returns(RegisterUserResponse) {}
+  // rpc (Request) returns(Response) {}
+}
+
+// USER
+message GetUserTokenRequest{
+  string login = 1;
+  string password = 2;
+}
+message GetUserTokenResponse{
+  string accessToken = 1;
+  string refreshToken = 2;
+}
+message RegisterUserRequest{
+  User user = 1;
+}
+message RegisterUserResponse{
+  string accessToken = 1;
+  string refreshToken = 2;
+}
+message User{
+}
+
