@@ -1,6 +1,6 @@
 package main
 
-import "zavad/internal/app"
+import "docs_flow/internal/app"
 
 func main() {
 	app.New().Run()

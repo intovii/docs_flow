@@ -1,9 +1,9 @@
 package middleware
 
 import (
+	"docs_flow/config"
+	"docs_flow/internal/repository/postgres"
 	"go.uber.org/zap"
-	"zavad/config"
-	"zavad/internal/repository/postgres"
 )
 
 type Middleware struct {

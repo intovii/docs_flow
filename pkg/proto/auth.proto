@@ -5,13 +5,13 @@ package auth_proto.v1;
 service auth{
   rpc GetUserToken(GetUserTokenRequest) returns(GetUserTokenResponse) {}
   rpc RegisterUser(RegisterUserRequest) returns(RegisterUserResponse) {}
-  
+
   rpc GetProfileData(GetProfileDataRequest) returns(GetProfileDataResponse) {}
 
   rpc GetMessangerChat(GetMessangerChatRequest) returns(GetMessangerChatResponse) {}
   rpc GetMessangerChats(GetMessangerChatsRequest) returns(GetMessangerChatsResponse) {}
   rpc SendMessage(SendMessageRequest) returns(SendMessageResponse) {}
-  
+
   rpc GetDocsSectionData(GetDocsSectionDataRequest) returns(GetDocsSectionDataResponse) {}
   rpc GetDocumentsTemplates(GetDocumentsTemplatesRequest) returns(GetDocumentsTemplatesResponse) {}
   rpc CreateDocument(CreateDocumentRequest) returns(CreateDocumentResponse) {}
@@ -38,125 +38,131 @@ message RegisterUserRequest{
 message RegisterUserResponse{
   // string accessToken = 1;
   // string refreshToken = 2;
-  string status=1;
+  string status = 1;
 }
 message User{
-  int64 ID=1;
-  string name=2;
-  string login=3;
-  string passwordHash=4;
-  string role=5;
-  string avaPath=6;
+  int64 ID = 1;
+  string name = 2;
+  string login = 3;
+  string passwordHash = 4;
+  string role = 5;
+  string avaPath = 6;
 }
 
 
 message GetProfileDataRequest{
 }
 message GetProfileDataResponse{
-  User user=1;
-  repeated Document documents=2;
+  User user = 1;
+  repeated Document documents = 2;
 }
 message Document{
-  int64 ID=1;
-  int64 creatorID=2;
-  string status=3;
-  string name=4;
-  string filePath=5;
-  string burnDateTime=6;
-  string description=7;
-  string signingStatus=8;
+  int64 ID = 1;
+  int64 creatorID = 2;
+  string status = 3;
+  string name = 4;
+  string filePath = 5;
+  string burnDateTime = 6;
+  string description = 7;
+  string signingStatus = 8;
 }
 
 message GetMessangerChatsRequest{
 }
 message GetMessangerChatsResponse{
-  repeated Chat chats=1;
+  repeated Chat chats = 1;
 }
 
 message GetMessangerChatRequest{
-  int64 chatID=1;
+  int64 chatID = 1;
 }
 message GetMessangerChatResponse{
-  User reciever=1;
-  repeated Message messages=2;
+  User receiver = 1;
+  repeated Message messages = 2;
 }
 
 message Chat{
-  int64 ID=1;
+  int64 ID = 1;
+  string name=2;// получателя
 }
 
 message Message{
-  int64 ID=1;
-  int64 senderID=2;
-  int64 chatID=3;
-  string messageText=4;
-  repeated int64 documentsIDS=5;
-  string burnDateTime=6;
+  int64 ID = 1;
+  int64 senderID = 2;
+  int64 chatID = 3;
+  string messageText = 4;
+  repeated DocumentMessage documentsMessage = 5;
+  string burnDateTime = 6;
 }
 
+message DocumentMessage{
+  int64 ID = 1;
+  string name = 2;
+  string filePath = 3;
+}
 
 message SendMessageRequest{
-  Message message=1;
+  Message message = 1;
 }
 message SendMessageResponse{
-  string status=1;
+  string status = 1;
 }
 
-
+// все документы пользователя
 message GetDocsSectionDataRequest{
 }
 message GetDocsSectionDataResponse{
-  User user=1;
-  repeated Document documents=2;
+  User user = 1;
+  repeated Document documents = 2;
 }
 
 message GetDocumentsTemplatesRequest{
 }
 message GetDocumentsTemplatesResponse{
-  repeated Document documentsTemplates=1;
+  repeated Document documentsTemplates = 1;
 }
 
 message CreateDocumentRequest{
-  Document document=1;
+  Document document = 1;
 }
 message CreateDocumentResponse{
-  string status=1;
+  string status = 1;
 }
 
 message GetDocumentsRequest{
 }
 message GetDocumentsResponse{
-  repeated Document documents=1;
+  repeated Document documents = 1;
 }
 
 message SignDocumentRequest{
-  int64 documentID=1;
+  int64 documentID = 1;
 }
 message SignDocumentResponse{
-  string status=1;
+  string status = 1;
 }
 
 message CreateNotificationRequest{
-  Notification notification=1;
+  Notification notification = 1;
 }
 message CreateNotificationResponse{
-  string status=1;
+  string status = 1;
 }
 
 message DeleteNotificationRequest{
-  int64 notificationID=1;
+  int64 notificationID = 1;
 }
 message DeleteNotificationResponse{
-  string status=1;
+  string status = 1;
 }
 
 message GetNotificationsRequest{
 }
 message GetNotificationsResponse{
-  repeated Notification notifications=1;
+  repeated Notification notifications = 1;
 }
 
 message Notification{
-  int64 ID=1;
-  string text=2;
+  int64 ID = 1;
+  string text = 2;
 }

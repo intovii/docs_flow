@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: auth.proto
 
-package auth_protov1
+package _go
 
 import (
 	context "context"
@@ -19,18 +19,20 @@ import (
 const _ = grpc.SupportPackageIsVersion8
 
 const (
-	Auth_GetUserToken_FullMethodName             = "/auth_proto.v1.auth/GetUserToken"
-	Auth_RegisterUser_FullMethodName             = "/auth_proto.v1.auth/RegisterUser"
-	Auth_CreateCourse_FullMethodName             = "/auth_proto.v1.auth/CreateCourse"
-	Auth_UpdateCourse_FullMethodName             = "/auth_proto.v1.auth/UpdateCourse"
-	Auth_GetCourse_FullMethodName                = "/auth_proto.v1.auth/GetCourse"
-	Auth_GetAllCoursesCatalog_FullMethodName     = "/auth_proto.v1.auth/GetAllCoursesCatalog"
-	Auth_DeleteCourse_FullMethodName             = "/auth_proto.v1.auth/DeleteCourse"
-	Auth_CreateUserCoursePayment_FullMethodName  = "/auth_proto.v1.auth/CreateUserCoursePayment"
-	Auth_CreateCourseContentMulti_FullMethodName = "/auth_proto.v1.auth/CreateCourseContentMulti"
-	Auth_GetCourseContent_FullMethodName         = "/auth_proto.v1.auth/GetCourseContent"
-	Auth_UpdateCourseContent_FullMethodName      = "/auth_proto.v1.auth/UpdateCourseContent"
-	Auth_DeleteCourseContent_FullMethodName      = "/auth_proto.v1.auth/DeleteCourseContent"
+	Auth_GetUserToken_FullMethodName          = "/auth_proto.v1.auth/GetUserToken"
+	Auth_RegisterUser_FullMethodName          = "/auth_proto.v1.auth/RegisterUser"
+	Auth_GetProfileData_FullMethodName        = "/auth_proto.v1.auth/GetProfileData"
+	Auth_GetMessangerChat_FullMethodName      = "/auth_proto.v1.auth/GetMessangerChat"
+	Auth_GetMessangerChats_FullMethodName     = "/auth_proto.v1.auth/GetMessangerChats"
+	Auth_SendMessage_FullMethodName           = "/auth_proto.v1.auth/SendMessage"
+	Auth_GetDocsSectionData_FullMethodName    = "/auth_proto.v1.auth/GetDocsSectionData"
+	Auth_GetDocumentsTemplates_FullMethodName = "/auth_proto.v1.auth/GetDocumentsTemplates"
+	Auth_CreateDocument_FullMethodName        = "/auth_proto.v1.auth/CreateDocument"
+	Auth_GetDocuments_FullMethodName          = "/auth_proto.v1.auth/GetDocuments"
+	Auth_SignDocument_FullMethodName          = "/auth_proto.v1.auth/SignDocument"
+	Auth_CreateNotification_FullMethodName    = "/auth_proto.v1.auth/CreateNotification"
+	Auth_DeleteNotification_FullMethodName    = "/auth_proto.v1.auth/DeleteNotification"
+	Auth_GetNotifications_FullMethodName      = "/auth_proto.v1.auth/GetNotifications"
 )
 
 // AuthClient is the client API for Auth service.
@@ -39,16 +41,18 @@ const (
 type AuthClient interface {
 	GetUserToken(ctx context.Context, in *GetUserTokenRequest, opts ...grpc.CallOption) (*GetUserTokenResponse, error)
 	RegisterUser(ctx context.Context, in *RegisterUserRequest, opts ...grpc.CallOption) (*RegisterUserResponse, error)
-	CreateCourse(ctx context.Context, in *CreateCourseRequest, opts ...grpc.CallOption) (*CreateCourseResponse, error)
-	UpdateCourse(ctx context.Context, in *UpdateCourseRequest, opts ...grpc.CallOption) (*UpdateCourseResponse, error)
-	GetCourse(ctx context.Context, in *GetCourseRequest, opts ...grpc.CallOption) (*GetCourseResponse, error)
-	GetAllCoursesCatalog(ctx context.Context, in *GetAllCoursesCatalogRequest, opts ...grpc.CallOption) (*GetAllCoursesCatalogResponse, error)
-	DeleteCourse(ctx context.Context, in *DeleteCourseRequest, opts ...grpc.CallOption) (*DeleteCourseResponse, error)
-	CreateUserCoursePayment(ctx context.Context, in *CreateUserCoursePaymentRequest, opts ...grpc.CallOption) (*CreateUserCoursePaymentResponse, error)
-	CreateCourseContentMulti(ctx context.Context, in *CreateCourseContentMultiRequest, opts ...grpc.CallOption) (*CreateCourseContentMultiResponse, error)
-	GetCourseContent(ctx context.Context, in *GetCourseContentRequest, opts ...grpc.CallOption) (*GetCourseContentResponse, error)
-	UpdateCourseContent(ctx context.Context, in *UpdateCourseContentRequest, opts ...grpc.CallOption) (*UpdateCourseContentResponse, error)
-	DeleteCourseContent(ctx context.Context, in *DeleteCourseContentRequest, opts ...grpc.CallOption) (*DeleteCourseContentResponse, error)
+	GetProfileData(ctx context.Context, in *GetProfileDataRequest, opts ...grpc.CallOption) (*GetProfileDataResponse, error)
+	GetMessangerChat(ctx context.Context, in *GetMessangerChatRequest, opts ...grpc.CallOption) (*GetMessangerChatResponse, error)
+	GetMessangerChats(ctx context.Context, in *GetMessangerChatsRequest, opts ...grpc.CallOption) (*GetMessangerChatsResponse, error)
+	SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (*SendMessageResponse, error)
+	GetDocsSectionData(ctx context.Context, in *GetDocsSectionDataRequest, opts ...grpc.CallOption) (*GetDocsSectionDataResponse, error)
+	GetDocumentsTemplates(ctx context.Context, in *GetDocumentsTemplatesRequest, opts ...grpc.CallOption) (*GetDocumentsTemplatesResponse, error)
+	CreateDocument(ctx context.Context, in *CreateDocumentRequest, opts ...grpc.CallOption) (*CreateDocumentResponse, error)
+	GetDocuments(ctx context.Context, in *GetDocumentsRequest, opts ...grpc.CallOption) (*GetDocumentsResponse, error)
+	SignDocument(ctx context.Context, in *SignDocumentRequest, opts ...grpc.CallOption) (*SignDocumentResponse, error)
+	CreateNotification(ctx context.Context, in *CreateNotificationRequest, opts ...grpc.CallOption) (*CreateNotificationResponse, error)
+	DeleteNotification(ctx context.Context, in *DeleteNotificationRequest, opts ...grpc.CallOption) (*DeleteNotificationResponse, error)
+	GetNotifications(ctx context.Context, in *GetNotificationsRequest, opts ...grpc.CallOption) (*GetNotificationsResponse, error)
 }
 
 type authClient struct {
@@ -79,100 +83,120 @@ func (c *authClient) RegisterUser(ctx context.Context, in *RegisterUserRequest, 
 	return out, nil
 }
 
-func (c *authClient) CreateCourse(ctx context.Context, in *CreateCourseRequest, opts ...grpc.CallOption) (*CreateCourseResponse, error) {
+func (c *authClient) GetProfileData(ctx context.Context, in *GetProfileDataRequest, opts ...grpc.CallOption) (*GetProfileDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateCourseResponse)
-	err := c.cc.Invoke(ctx, Auth_CreateCourse_FullMethodName, in, out, cOpts...)
+	out := new(GetProfileDataResponse)
+	err := c.cc.Invoke(ctx, Auth_GetProfileData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authClient) UpdateCourse(ctx context.Context, in *UpdateCourseRequest, opts ...grpc.CallOption) (*UpdateCourseResponse, error) {
+func (c *authClient) GetMessangerChat(ctx context.Context, in *GetMessangerChatRequest, opts ...grpc.CallOption) (*GetMessangerChatResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateCourseResponse)
-	err := c.cc.Invoke(ctx, Auth_UpdateCourse_FullMethodName, in, out, cOpts...)
+	out := new(GetMessangerChatResponse)
+	err := c.cc.Invoke(ctx, Auth_GetMessangerChat_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authClient) GetCourse(ctx context.Context, in *GetCourseRequest, opts ...grpc.CallOption) (*GetCourseResponse, error) {
+func (c *authClient) GetMessangerChats(ctx context.Context, in *GetMessangerChatsRequest, opts ...grpc.CallOption) (*GetMessangerChatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCourseResponse)
-	err := c.cc.Invoke(ctx, Auth_GetCourse_FullMethodName, in, out, cOpts...)
+	out := new(GetMessangerChatsResponse)
+	err := c.cc.Invoke(ctx, Auth_GetMessangerChats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authClient) GetAllCoursesCatalog(ctx context.Context, in *GetAllCoursesCatalogRequest, opts ...grpc.CallOption) (*GetAllCoursesCatalogResponse, error) {
+func (c *authClient) SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (*SendMessageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAllCoursesCatalogResponse)
-	err := c.cc.Invoke(ctx, Auth_GetAllCoursesCatalog_FullMethodName, in, out, cOpts...)
+	out := new(SendMessageResponse)
+	err := c.cc.Invoke(ctx, Auth_SendMessage_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authClient) DeleteCourse(ctx context.Context, in *DeleteCourseRequest, opts ...grpc.CallOption) (*DeleteCourseResponse, error) {
+func (c *authClient) GetDocsSectionData(ctx context.Context, in *GetDocsSectionDataRequest, opts ...grpc.CallOption) (*GetDocsSectionDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteCourseResponse)
-	err := c.cc.Invoke(ctx, Auth_DeleteCourse_FullMethodName, in, out, cOpts...)
+	out := new(GetDocsSectionDataResponse)
+	err := c.cc.Invoke(ctx, Auth_GetDocsSectionData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authClient) CreateUserCoursePayment(ctx context.Context, in *CreateUserCoursePaymentRequest, opts ...grpc.CallOption) (*CreateUserCoursePaymentResponse, error) {
+func (c *authClient) GetDocumentsTemplates(ctx context.Context, in *GetDocumentsTemplatesRequest, opts ...grpc.CallOption) (*GetDocumentsTemplatesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateUserCoursePaymentResponse)
-	err := c.cc.Invoke(ctx, Auth_CreateUserCoursePayment_FullMethodName, in, out, cOpts...)
+	out := new(GetDocumentsTemplatesResponse)
+	err := c.cc.Invoke(ctx, Auth_GetDocumentsTemplates_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authClient) CreateCourseContentMulti(ctx context.Context, in *CreateCourseContentMultiRequest, opts ...grpc.CallOption) (*CreateCourseContentMultiResponse, error) {
+func (c *authClient) CreateDocument(ctx context.Context, in *CreateDocumentRequest, opts ...grpc.CallOption) (*CreateDocumentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateCourseContentMultiResponse)
-	err := c.cc.Invoke(ctx, Auth_CreateCourseContentMulti_FullMethodName, in, out, cOpts...)
+	out := new(CreateDocumentResponse)
+	err := c.cc.Invoke(ctx, Auth_CreateDocument_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authClient) GetCourseContent(ctx context.Context, in *GetCourseContentRequest, opts ...grpc.CallOption) (*GetCourseContentResponse, error) {
+func (c *authClient) GetDocuments(ctx context.Context, in *GetDocumentsRequest, opts ...grpc.CallOption) (*GetDocumentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCourseContentResponse)
-	err := c.cc.Invoke(ctx, Auth_GetCourseContent_FullMethodName, in, out, cOpts...)
+	out := new(GetDocumentsResponse)
+	err := c.cc.Invoke(ctx, Auth_GetDocuments_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authClient) UpdateCourseContent(ctx context.Context, in *UpdateCourseContentRequest, opts ...grpc.CallOption) (*UpdateCourseContentResponse, error) {
+func (c *authClient) SignDocument(ctx context.Context, in *SignDocumentRequest, opts ...grpc.CallOption) (*SignDocumentResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateCourseContentResponse)
-	err := c.cc.Invoke(ctx, Auth_UpdateCourseContent_FullMethodName, in, out, cOpts...)
+	out := new(SignDocumentResponse)
+	err := c.cc.Invoke(ctx, Auth_SignDocument_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authClient) DeleteCourseContent(ctx context.Context, in *DeleteCourseContentRequest, opts ...grpc.CallOption) (*DeleteCourseContentResponse, error) {
+func (c *authClient) CreateNotification(ctx context.Context, in *CreateNotificationRequest, opts ...grpc.CallOption) (*CreateNotificationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteCourseContentResponse)
-	err := c.cc.Invoke(ctx, Auth_DeleteCourseContent_FullMethodName, in, out, cOpts...)
+	out := new(CreateNotificationResponse)
+	err := c.cc.Invoke(ctx, Auth_CreateNotification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authClient) DeleteNotification(ctx context.Context, in *DeleteNotificationRequest, opts ...grpc.CallOption) (*DeleteNotificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteNotificationResponse)
+	err := c.cc.Invoke(ctx, Auth_DeleteNotification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authClient) GetNotifications(ctx context.Context, in *GetNotificationsRequest, opts ...grpc.CallOption) (*GetNotificationsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNotificationsResponse)
+	err := c.cc.Invoke(ctx, Auth_GetNotifications_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -185,16 +209,18 @@ func (c *authClient) DeleteCourseContent(ctx context.Context, in *DeleteCourseCo
 type AuthServer interface {
 	GetUserToken(context.Context, *GetUserTokenRequest) (*GetUserTokenResponse, error)
 	RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error)
-	CreateCourse(context.Context, *CreateCourseRequest) (*CreateCourseResponse, error)
-	UpdateCourse(context.Context, *UpdateCourseRequest) (*UpdateCourseResponse, error)
-	GetCourse(context.Context, *GetCourseRequest) (*GetCourseResponse, error)
-	GetAllCoursesCatalog(context.Context, *GetAllCoursesCatalogRequest) (*GetAllCoursesCatalogResponse, error)
-	DeleteCourse(context.Context, *DeleteCourseRequest) (*DeleteCourseResponse, error)
-	CreateUserCoursePayment(context.Context, *CreateUserCoursePaymentRequest) (*CreateUserCoursePaymentResponse, error)
-	CreateCourseContentMulti(context.Context, *CreateCourseContentMultiRequest) (*CreateCourseContentMultiResponse, error)
-	GetCourseContent(context.Context, *GetCourseContentRequest) (*GetCourseContentResponse, error)
-	UpdateCourseContent(context.Context, *UpdateCourseContentRequest) (*UpdateCourseContentResponse, error)
-	DeleteCourseContent(context.Context, *DeleteCourseContentRequest) (*DeleteCourseContentResponse, error)
+	GetProfileData(context.Context, *GetProfileDataRequest) (*GetProfileDataResponse, error)
+	GetMessangerChat(context.Context, *GetMessangerChatRequest) (*GetMessangerChatResponse, error)
+	GetMessangerChats(context.Context, *GetMessangerChatsRequest) (*GetMessangerChatsResponse, error)
+	SendMessage(context.Context, *SendMessageRequest) (*SendMessageResponse, error)
+	GetDocsSectionData(context.Context, *GetDocsSectionDataRequest) (*GetDocsSectionDataResponse, error)
+	GetDocumentsTemplates(context.Context, *GetDocumentsTemplatesRequest) (*GetDocumentsTemplatesResponse, error)
+	CreateDocument(context.Context, *CreateDocumentRequest) (*CreateDocumentResponse, error)
+	GetDocuments(context.Context, *GetDocumentsRequest) (*GetDocumentsResponse, error)
+	SignDocument(context.Context, *SignDocumentRequest) (*SignDocumentResponse, error)
+	CreateNotification(context.Context, *CreateNotificationRequest) (*CreateNotificationResponse, error)
+	DeleteNotification(context.Context, *DeleteNotificationRequest) (*DeleteNotificationResponse, error)
+	GetNotifications(context.Context, *GetNotificationsRequest) (*GetNotificationsResponse, error)
 	mustEmbedUnimplementedAuthServer()
 }
 
@@ -211,35 +237,41 @@ func (UnimplementedAuthServer) GetUserToken(context.Context, *GetUserTokenReques
 func (UnimplementedAuthServer) RegisterUser(context.Context, *RegisterUserRequest) (*RegisterUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterUser not implemented")
 }
-func (UnimplementedAuthServer) CreateCourse(context.Context, *CreateCourseRequest) (*CreateCourseResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateCourse not implemented")
+func (UnimplementedAuthServer) GetProfileData(context.Context, *GetProfileDataRequest) (*GetProfileDataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetProfileData not implemented")
 }
-func (UnimplementedAuthServer) UpdateCourse(context.Context, *UpdateCourseRequest) (*UpdateCourseResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCourse not implemented")
+func (UnimplementedAuthServer) GetMessangerChat(context.Context, *GetMessangerChatRequest) (*GetMessangerChatResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMessangerChat not implemented")
 }
-func (UnimplementedAuthServer) GetCourse(context.Context, *GetCourseRequest) (*GetCourseResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetCourse not implemented")
+func (UnimplementedAuthServer) GetMessangerChats(context.Context, *GetMessangerChatsRequest) (*GetMessangerChatsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMessangerChats not implemented")
 }
-func (UnimplementedAuthServer) GetAllCoursesCatalog(context.Context, *GetAllCoursesCatalogRequest) (*GetAllCoursesCatalogResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllCoursesCatalog not implemented")
+func (UnimplementedAuthServer) SendMessage(context.Context, *SendMessageRequest) (*SendMessageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendMessage not implemented")
 }
-func (UnimplementedAuthServer) DeleteCourse(context.Context, *DeleteCourseRequest) (*DeleteCourseResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteCourse not implemented")
+func (UnimplementedAuthServer) GetDocsSectionData(context.Context, *GetDocsSectionDataRequest) (*GetDocsSectionDataResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDocsSectionData not implemented")
 }
-func (UnimplementedAuthServer) CreateUserCoursePayment(context.Context, *CreateUserCoursePaymentRequest) (*CreateUserCoursePaymentResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateUserCoursePayment not implemented")
+func (UnimplementedAuthServer) GetDocumentsTemplates(context.Context, *GetDocumentsTemplatesRequest) (*GetDocumentsTemplatesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDocumentsTemplates not implemented")
 }
-func (UnimplementedAuthServer) CreateCourseContentMulti(context.Context, *CreateCourseContentMultiRequest) (*CreateCourseContentMultiResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateCourseContentMulti not implemented")
+func (UnimplementedAuthServer) CreateDocument(context.Context, *CreateDocumentRequest) (*CreateDocumentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateDocument not implemented")
 }
-func (UnimplementedAuthServer) GetCourseContent(context.Context, *GetCourseContentRequest) (*GetCourseContentResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetCourseContent not implemented")
+func (UnimplementedAuthServer) GetDocuments(context.Context, *GetDocumentsRequest) (*GetDocumentsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDocuments not implemented")
 }
-func (UnimplementedAuthServer) UpdateCourseContent(context.Context, *UpdateCourseContentRequest) (*UpdateCourseContentResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCourseContent not implemented")
+func (UnimplementedAuthServer) SignDocument(context.Context, *SignDocumentRequest) (*SignDocumentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SignDocument not implemented")
 }
-func (UnimplementedAuthServer) DeleteCourseContent(context.Context, *DeleteCourseContentRequest) (*DeleteCourseContentResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteCourseContent not implemented")
+func (UnimplementedAuthServer) CreateNotification(context.Context, *CreateNotificationRequest) (*CreateNotificationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateNotification not implemented")
+}
+func (UnimplementedAuthServer) DeleteNotification(context.Context, *DeleteNotificationRequest) (*DeleteNotificationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteNotification not implemented")
+}
+func (UnimplementedAuthServer) GetNotifications(context.Context, *GetNotificationsRequest) (*GetNotificationsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetNotifications not implemented")
 }
 func (UnimplementedAuthServer) mustEmbedUnimplementedAuthServer() {}
 func (UnimplementedAuthServer) testEmbeddedByValue()              {}
@@ -298,182 +330,218 @@ func _Auth_RegisterUser_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auth_CreateCourse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCourseRequest)
+func _Auth_GetProfileData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServer).CreateCourse(ctx, in)
+		return srv.(AuthServer).GetProfileData(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Auth_CreateCourse_FullMethodName,
+		FullMethod: Auth_GetProfileData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).CreateCourse(ctx, req.(*CreateCourseRequest))
+		return srv.(AuthServer).GetProfileData(ctx, req.(*GetProfileDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auth_UpdateCourse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCourseRequest)
+func _Auth_GetMessangerChat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMessangerChatRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServer).UpdateCourse(ctx, in)
+		return srv.(AuthServer).GetMessangerChat(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Auth_UpdateCourse_FullMethodName,
+		FullMethod: Auth_GetMessangerChat_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).UpdateCourse(ctx, req.(*UpdateCourseRequest))
+		return srv.(AuthServer).GetMessangerChat(ctx, req.(*GetMessangerChatRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auth_GetCourse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCourseRequest)
+func _Auth_GetMessangerChats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMessangerChatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServer).GetCourse(ctx, in)
+		return srv.(AuthServer).GetMessangerChats(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Auth_GetCourse_FullMethodName,
+		FullMethod: Auth_GetMessangerChats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).GetCourse(ctx, req.(*GetCourseRequest))
+		return srv.(AuthServer).GetMessangerChats(ctx, req.(*GetMessangerChatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auth_GetAllCoursesCatalog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllCoursesCatalogRequest)
+func _Auth_SendMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendMessageRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServer).GetAllCoursesCatalog(ctx, in)
+		return srv.(AuthServer).SendMessage(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Auth_GetAllCoursesCatalog_FullMethodName,
+		FullMethod: Auth_SendMessage_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).GetAllCoursesCatalog(ctx, req.(*GetAllCoursesCatalogRequest))
+		return srv.(AuthServer).SendMessage(ctx, req.(*SendMessageRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auth_DeleteCourse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteCourseRequest)
+func _Auth_GetDocsSectionData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDocsSectionDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServer).DeleteCourse(ctx, in)
+		return srv.(AuthServer).GetDocsSectionData(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Auth_DeleteCourse_FullMethodName,
+		FullMethod: Auth_GetDocsSectionData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).DeleteCourse(ctx, req.(*DeleteCourseRequest))
+		return srv.(AuthServer).GetDocsSectionData(ctx, req.(*GetDocsSectionDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auth_CreateUserCoursePayment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateUserCoursePaymentRequest)
+func _Auth_GetDocumentsTemplates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDocumentsTemplatesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServer).CreateUserCoursePayment(ctx, in)
+		return srv.(AuthServer).GetDocumentsTemplates(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Auth_CreateUserCoursePayment_FullMethodName,
+		FullMethod: Auth_GetDocumentsTemplates_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).CreateUserCoursePayment(ctx, req.(*CreateUserCoursePaymentRequest))
+		return srv.(AuthServer).GetDocumentsTemplates(ctx, req.(*GetDocumentsTemplatesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auth_CreateCourseContentMulti_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCourseContentMultiRequest)
+func _Auth_CreateDocument_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateDocumentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServer).CreateCourseContentMulti(ctx, in)
+		return srv.(AuthServer).CreateDocument(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Auth_CreateCourseContentMulti_FullMethodName,
+		FullMethod: Auth_CreateDocument_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).CreateCourseContentMulti(ctx, req.(*CreateCourseContentMultiRequest))
+		return srv.(AuthServer).CreateDocument(ctx, req.(*CreateDocumentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auth_GetCourseContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCourseContentRequest)
+func _Auth_GetDocuments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDocumentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServer).GetCourseContent(ctx, in)
+		return srv.(AuthServer).GetDocuments(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Auth_GetCourseContent_FullMethodName,
+		FullMethod: Auth_GetDocuments_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).GetCourseContent(ctx, req.(*GetCourseContentRequest))
+		return srv.(AuthServer).GetDocuments(ctx, req.(*GetDocumentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auth_UpdateCourseContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateCourseContentRequest)
+func _Auth_SignDocument_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SignDocumentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServer).UpdateCourseContent(ctx, in)
+		return srv.(AuthServer).SignDocument(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Auth_UpdateCourseContent_FullMethodName,
+		FullMethod: Auth_SignDocument_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).UpdateCourseContent(ctx, req.(*UpdateCourseContentRequest))
+		return srv.(AuthServer).SignDocument(ctx, req.(*SignDocumentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Auth_DeleteCourseContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteCourseContentRequest)
+func _Auth_CreateNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateNotificationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServer).DeleteCourseContent(ctx, in)
+		return srv.(AuthServer).CreateNotification(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Auth_DeleteCourseContent_FullMethodName,
+		FullMethod: Auth_CreateNotification_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).DeleteCourseContent(ctx, req.(*DeleteCourseContentRequest))
+		return srv.(AuthServer).CreateNotification(ctx, req.(*CreateNotificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Auth_DeleteNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteNotificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServer).DeleteNotification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Auth_DeleteNotification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServer).DeleteNotification(ctx, req.(*DeleteNotificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Auth_GetNotifications_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNotificationsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServer).GetNotifications(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Auth_GetNotifications_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServer).GetNotifications(ctx, req.(*GetNotificationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -494,44 +562,52 @@ var Auth_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Auth_RegisterUser_Handler,
 		},
 		{
-			MethodName: "CreateCourse",
-			Handler:    _Auth_CreateCourse_Handler,
+			MethodName: "GetProfileData",
+			Handler:    _Auth_GetProfileData_Handler,
 		},
 		{
-			MethodName: "UpdateCourse",
-			Handler:    _Auth_UpdateCourse_Handler,
+			MethodName: "GetMessangerChat",
+			Handler:    _Auth_GetMessangerChat_Handler,
 		},
 		{
-			MethodName: "GetCourse",
-			Handler:    _Auth_GetCourse_Handler,
+			MethodName: "GetMessangerChats",
+			Handler:    _Auth_GetMessangerChats_Handler,
 		},
 		{
-			MethodName: "GetAllCoursesCatalog",
-			Handler:    _Auth_GetAllCoursesCatalog_Handler,
+			MethodName: "SendMessage",
+			Handler:    _Auth_SendMessage_Handler,
 		},
 		{
-			MethodName: "DeleteCourse",
-			Handler:    _Auth_DeleteCourse_Handler,
+			MethodName: "GetDocsSectionData",
+			Handler:    _Auth_GetDocsSectionData_Handler,
 		},
 		{
-			MethodName: "CreateUserCoursePayment",
-			Handler:    _Auth_CreateUserCoursePayment_Handler,
+			MethodName: "GetDocumentsTemplates",
+			Handler:    _Auth_GetDocumentsTemplates_Handler,
 		},
 		{
-			MethodName: "CreateCourseContentMulti",
-			Handler:    _Auth_CreateCourseContentMulti_Handler,
+			MethodName: "CreateDocument",
+			Handler:    _Auth_CreateDocument_Handler,
 		},
 		{
-			MethodName: "GetCourseContent",
-			Handler:    _Auth_GetCourseContent_Handler,
+			MethodName: "GetDocuments",
+			Handler:    _Auth_GetDocuments_Handler,
 		},
 		{
-			MethodName: "UpdateCourseContent",
-			Handler:    _Auth_UpdateCourseContent_Handler,
+			MethodName: "SignDocument",
+			Handler:    _Auth_SignDocument_Handler,
 		},
 		{
-			MethodName: "DeleteCourseContent",
-			Handler:    _Auth_DeleteCourseContent_Handler,
+			MethodName: "CreateNotification",
+			Handler:    _Auth_CreateNotification_Handler,
+		},
+		{
+			MethodName: "DeleteNotification",
+			Handler:    _Auth_DeleteNotification_Handler,
+		},
+		{
+			MethodName: "GetNotifications",
+			Handler:    _Auth_GetNotifications_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -2,11 +2,11 @@ service_name: "video_courses"
 
 Postgres:
   host: "127.0.0.1"
-  # port: "5432"
+  port: "5432"
   #  host: "postgres_courses"
-  port: "6332"
+#  port: "6332"
   user: "postgres"
-  password: "password"
+  password: "n164838i"
   DBName: "docs_flow"
   sslMode: "allow"
 

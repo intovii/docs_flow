@@ -1,8 +1,8 @@
 package repository
 
 import (
+	"docs_flow/internal/repository/postgres"
 	"go.uber.org/fx"
-	"zavad/internal/repository/postgres"
 )
 
 func New() fx.Option {
